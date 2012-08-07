@@ -52,7 +52,7 @@ end tell
 
 -- This version opens a sublime project file, but you can also open the directory itself
 on open_subl(caches_folder, new_filename)
-	do shell script subl_path & " --project " & caches_path & "Caches.sublime-project " & new_filename
+	do shell script subl_path & " -a --project " & caches_path & "Caches.sublime-project " & new_filename
 	tell application "Sublime Text 2" to activate
 end open_subl
 
