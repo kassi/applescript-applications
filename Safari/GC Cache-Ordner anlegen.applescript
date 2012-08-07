@@ -6,7 +6,7 @@
   * and opens the newly created file in the preferred editor.
   * Currently TextMate and Sublime Text 2 are supported.
   * File is to be placed into ~/Library/Scripts/Applications/Safari
-  * @author Karsten Silkenbäumer
+  * @author Karsten Silkenb√§umer
   *)
 property caches_path : "/Users/Kassi/Documents/Geocaching/Caches/" -- folder containing subfolder for each cache
 property mate_path : "/Users/Kassi/bin/mate"
@@ -16,7 +16,7 @@ tell application "Safari"
 	activate
 	set current_url to URL of document 1
 	set current_document to document 1
-	
+
 	set gccode to do JavaScript "document.getElementById('ctl00_ContentBody_CoordInfoLinkControl1_uxCoordInfoCode').innerText" in current_document
 	set title to do JavaScript "document.evaluate( \"self::*//meta[@name='og:title']/@content\", document.documentElement, null, XPathResult.STRING_TYPE, null).stringValue" in current_document
 	if title is not "" then
@@ -32,7 +32,7 @@ tell application "Safari"
 			on error
 				set new_folder to make new folder at caches_folder with properties {name:new_folder_name}
 			end try
-			
+
 			-- create initial document with cache title, so we can fuzzy search for it in Sublime Text
 			set new_init_filename to quoted form of (new_folder_path & "/" & title & ".txt")
 			do shell script "touch " & new_init_filename
@@ -46,7 +46,7 @@ tell application "Safari"
 			end tell
 		end tell
 	else
-		display dialog "GC Daten können nicht extrahiert werden."
+		display dialog "GC Daten k√∂nnen nicht extrahiert werden."
 	end if
 end tell
 
