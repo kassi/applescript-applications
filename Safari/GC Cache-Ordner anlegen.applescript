@@ -34,7 +34,7 @@ tell application "Safari"
 			end try
 
 			-- create initial document with cache title, so we can fuzzy search for it in Sublime Text
-			set new_init_filename to quoted form of (new_folder_path & "/" & title & ".txt")
+			set new_init_filename to quoted form of (new_folder_path & "/" & title & ".md")
 			do shell script "touch " & new_init_filename
 			-- open preferred editor
 			my open_subl(caches_folder, new_init_filename)
